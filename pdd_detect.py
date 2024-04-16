@@ -1,5 +1,8 @@
 import os
 import streamlit as st
+
+st.write("pip install tensorflow")
+
 import numpy as np
 from PIL import Image
 from keras.models import load_model
