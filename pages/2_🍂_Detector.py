@@ -55,94 +55,91 @@ def P_predict_disease(image_path):
     disease_class = Pepper_names[disease_index] # Fetch the class name using the index
     return disease_class
 
-tab1 = st.tabs(["Crop Health Assessment"])
+# selecting method for health assessment
+st.subheader("SELECT A METHOD")
+pick = st.selectbox("Select Method",('Upload','Camera'),label_visibility="hidden")
 
-with tab1:
-    # selecting method for health assessment
-    st.subheader("SELECT A METHOD")
-    pick = st.selectbox("Select Method",('Upload','Camera'),label_visibility="hidden")
+if pick == 'Camera':
+    st.subheader("Camera Input")
+    plantpic = st.camera_input("take a plant picture",label_visibility="hidden")
 
-    if pick == 'Camera':
-        st.subheader("Camera Input")
-        plantpic = st.camera_input("take a plant picture",label_visibility="hidden")
+    st.subheader("Select A Plant")
+    select = st.selectbox("Select Plant",('Lettuce','Cauliflower','Sugarcane','Pepper'),label_visibility="hidden")
         
-        st.subheader("Select A Plant")
-        select = st.selectbox("Select Plant",('Lettuce','Cauliflower','Sugarcane','Pepper'),label_visibility="hidden")
-         
-        submit = st.button("submit",use_container_width=True)
+    submit = st.button("submit",use_container_width=True)
+
+if submit:
+    if not plantpic:
+        st.write("take a photo!")
         
-        if submit:
-            if not plantpic:
-                st.write("take a photo!")
-                
-            elif select == 'Lettuce':
-                # predicting Lettuce disease
-                image_path = plantpic
-                predicted_class = L_predict_disease(image_path)
-                pred1 = "Predicted Disease Class: " + predicted_class
-                st.image(plantpic,pred1)
-                
-            elif select == 'Cauliflower':
-                # predicting Cauliflower disease
-                image_path = plantpic
-                predicted_class = C_predict_disease(image_path)
-                pred2 = "Predicted Disease Class: " + predicted_class
-                st.image(plantpic,pred2)
-                
-            elif select == 'Sugarcane':
-                # predicting Sugarcane disease
-                image_path = plantpic
-                predicted_class = S_predict_disease(image_path)
-                pred3 = "Predicted Disease Class: " + predicted_class
-                st.image(plantpic,pred3)
-                
-            elif select == 'Pepper':
-                # predicting Pepper disease
-                image_path = plantpic
-                predicted_class = P_predict_disease(image_path)
-                pred4 = "Predicted Disease Class: " + predicted_class
-                st.image(plantpic,pred4)
-               
-            
-    elif pick == 'Upload':
-        st.subheader("Upload Image File")
-        plantpic = st.file_uploader("upload",['jpg','png','gif','webp','tiff','psd','raw','bmp','jfif'],False,label_visibility="hidden")
+    elif select == 'Lettuce':
+        # predicting Lettuce disease
+        image_path = plantpic
+        predicted_class = L_predict_disease(image_path)
+        pred1 = "Predicted Disease Class: " + predicted_class
+        st.image(plantpic,pred1)
         
-        st.subheader("Select A Plant")
-        select = st.selectbox("Select Plant",('Lettuce','Cauliflower','Sugarcane','Pepper'),label_visibility="hidden")
+    elif select == 'Cauliflower':
+        # predicting Cauliflower disease
+        image_path = plantpic
+        predicted_class = C_predict_disease(image_path)
+        pred2 = "Predicted Disease Class: " + predicted_class
+        st.image(plantpic,pred2)
         
-        submit1 = st.button("submit",use_container_width=True)
-        if submit1:
-            if not plantpic:
-                st.write("take a photo!")
-                
-            elif select == 'Lettuce':
-                # predicting Lettuce disease
-                image_path = plantpic
-                predicted_class = L_predict_disease(image_path)
-                pred1 = "Predicted Disease Class: " + predicted_class
-                st.image(plantpic,pred1)
-                
-            elif select == 'Cauliflower':
-                # predicting Cauliflower disease
-                image_path = plantpic
-                predicted_class = C_predict_disease(image_path)
-                pred2 = "Predicted Disease Class: " + predicted_class
-                st.image(plantpic,pred2)
-                
-            elif select == 'Sugarcane':
-                # predicting Sugarcane disease
-                image_path = plantpic
-                predicted_class = S_predict_disease(image_path)
-                pred3 = "Predicted Disease Class: " + predicted_class
-                st.image(plantpic,pred3)
-                
-            elif select == 'Pepper':
-                # predicting Pepper disease
-                image_path = plantpic
-                predicted_class = P_predict_disease(image_path)
-                pred4 = "Predicted Disease Class: " + predicted_class
-                st.image(plantpic,pred4)
+    elif select == 'Sugarcane':
+        # predicting Sugarcane disease
+        image_path = plantpic
+        predicted_class = S_predict_disease(image_path)
+        pred3 = "Predicted Disease Class: " + predicted_class
+        st.image(plantpic,pred3)
+        
+    elif select == 'Pepper':
+        # predicting Pepper disease
+        image_path = plantpic
+        predicted_class = P_predict_disease(image_path)
+        pred4 = "Predicted Disease Class: " + predicted_class
+        st.image(plantpic,pred4)
+        
+    
+elif pick == 'Upload':
+    st.subheader("Upload Image File")
+    plantpic = st.file_uploader("upload",['jpg','png','gif','webp','tiff','psd','raw','bmp','jfif'],False,label_visibility="hidden")
+
+    st.subheader("Select A Plant")
+    select = st.selectbox("Select Plant",('Lettuce','Cauliflower','Sugarcane','Pepper'),label_visibility="hidden")
+
+    submit1 = st.button("submit",use_container_width=True)
+if submit1:
+    if not plantpic:
+        st.write("take a photo!")
+        
+    elif select == 'Lettuce':
+        # predicting Lettuce disease
+        image_path = plantpic
+        predicted_class = L_predict_disease(image_path)
+        pred1 = "Predicted Disease Class: " + predicted_class
+        st.image(plantpic,pred1)
+        
+    elif select == 'Cauliflower':
+        # predicting Cauliflower disease
+        image_path = plantpic
+        predicted_class = C_predict_disease(image_path)
+        pred2 = "Predicted Disease Class: " + predicted_class
+        st.image(plantpic,pred2)
+        
+    elif select == 'Sugarcane':
+        # predicting Sugarcane disease
+        image_path = plantpic
+        predicted_class = S_predict_disease(image_path)
+        pred3 = "Predicted Disease Class: " + predicted_class
+        st.image(plantpic,pred3)
+        
+    elif select == 'Pepper':
+        # predicting Pepper disease
+        image_path = plantpic
+        predicted_class = P_predict_disease(image_path)
+        pred4 = "Predicted Disease Class: " + predicted_class
+        st.image(plantpic,pred4)
                 
     
 
