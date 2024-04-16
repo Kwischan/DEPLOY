@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 
-st.write("pip install tensorflow")
+st.write_stream("pip install tensorflow")
 
 import numpy as np
 from PIL import Image
