@@ -1,8 +1,8 @@
 import os
 import streamlit as st
 
-st.write(f"+ tensorflow==2.13.0")
-st.write(f"+ keras==2.13.1")
+os.system(f"+ tensorflow==2.13.0")
+os.system(f"+ keras==2.13.1")
 
 import numpy as np
 from PIL import Image
