@@ -5,10 +5,10 @@ from PIL import Image
 from keras.models import load_model
 
 
-model1 = load_model('../Models/LettuceModel.h5')  # saved model from training
-model2 = load_model('../Models/CauliflowerModel.h5')  # saved model from training
-model3 = load_model('../Models/SugarcaneModel-1.h5')  # saved model from training
-model4 = load_model('../Models/PepperModel.h5')  # saved model from training
+model1 = load_model('Models/LettuceModel.h5')  # saved model from training
+model2 = load_model('Models/CauliflowerModel.h5')  # saved model from training
+model3 = load_model('Models/SugarcaneModel-1.h5')  # saved model from training
+model4 = load_model('Models/PepperModel.h5')  # saved model from training
 
 Lettuce_names = ["lettuce_BacterialLeafSpot", "lettuce_BotrytisCrownRot", "lettuce_DownyMildew", "lettuce_Healthy"]
 
