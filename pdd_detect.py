@@ -1,7 +1,8 @@
 import os
 import streamlit as st
 
-st.write_stream("pip install tensorflow")
+os.system('pip install tesnsorflow')
+os.system('pip install keras')
 
 import numpy as np
 from PIL import Image
