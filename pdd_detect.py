@@ -1,8 +1,8 @@
 import os
 import streamlit as st
 
-os.system('pip install tesnsorflow')
-os.system('pip install keras')
+os.system('pip install tesnsorflow==2.13.0')
+os.system('pip install keras==2.13.1')
 
 import numpy as np
 from PIL import Image
